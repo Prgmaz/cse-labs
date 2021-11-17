@@ -113,4 +113,49 @@ ROLLNO NAME                      BRAN   SEMESTER SE    DNUMBER 	NAME 			HOD
 
        178 Nilesh Kumar Singh        CS            5 C           5 		CS		DR. CS Yadav
 ```
-###
+### USAGE OF UNION, INTERSECT and MINUS
+```
+SQL> CREATE TABLE account(account_number INT PRIMARY KEY, branch_name VARCHAR(25), balance NUMBER);
+
+Table created.
+
+SQL> CREATE TABLE loan(loan_number INT PRIMARY KEY, branch_name VARCHAR(25), amount NUMBER);
+
+Table created.
+
+SQL> INSERT INTO account VALUES(&number, '&branch', &balance);
+Enter value for number: 1
+Enter value for branch: noida
+Enter value for balance: 50000
+old   1: INSERT INTO account VALUES(&number, '&branch', &balance)
+new   1: INSERT INTO account VALUES(1, 'noida', 50000)
+
+1 row created.
+
+SQL> INSERT INTO account VALUES(&number, '&branch', &balance);
+Enter value for number: 2
+Enter value for branch: delhi
+Enter value for balance: 400000
+old   1: INSERT INTO account VALUES(&number, '&branch', &balance)
+new   1: INSERT INTO account VALUES(2, 'delhi', 400000)
+
+1 row created.
+
+SQL> INSERT INTO loan VALUES(&number, '&branch', &amount);
+Enter value for number: 1
+Enter value for branch: noida
+Enter value for amount: 2000
+old   1: INSERT INTO loan VALUES(&number, '&branch', &amount)
+new   1: INSERT INTO loan VALUES(1, 'noida', 2000)
+
+1 row created.
+
+SQL> INSERT INTO loan VALUES(&number, '&branch', &amount);
+Enter value for number: 2
+Enter value for branch: lmp
+Enter value for amount: 4000
+old   1: INSERT INTO loan VALUES(&number, '&branch', &amount)
+new   1: INSERT INTO loan VALUES(2, 'lmp', 4000)
+
+1 row created.
+```
