@@ -123,6 +123,18 @@ SQL> CREATE TABLE loan(loan_number INT PRIMARY KEY, branch_name VARCHAR(25), amo
 
 Table created.
 
+SQL> CREATE TABLE customer(customer_name VARCHAR(25) PRIMARY KEY, customer_street VARCHAR(25), customer_city VARCHAR(25));
+
+Table created.
+
+SQL> CREATE TABLE depositor(customer_name VARCHAR(25), account_number INT, PRIMARY KEY(customer_name, account_number));
+
+Table created.
+
+SQL> CREATE TABLE borrower(customer_name VARCHAR(25), loan_number INT, PRIMARY KEY(customer_name, loan_number));
+
+Table created.
+
 SQL> INSERT INTO account VALUES(&number, '&branch', &balance);
 Enter value for number: 1
 Enter value for branch: noida
@@ -158,4 +170,31 @@ old   1: INSERT INTO loan VALUES(&number, '&branch', &amount)
 new   1: INSERT INTO loan VALUES(2, 'lmp', 4000)
 
 1 row created.
+
+SQL> (SELECT * FROM loan) UNION (SELECT * FROM account);
+
+LOAN_NUMBER BRANCH_NAME                   AMOUNT
+----------- ------------------------- ----------
+          1 noida                           2000
+          1 noida                          50000
+          2 delhi                         400000
+          2 lmp                             4000
+
+SQL> (SELECT * FROM loan) INTERSECT (SELECT * FROM account);
+
+no rows selected
+
+SQL> (SELECT branch_name FROM loan) INTERSECT (SELECT branch_name FROM account);
+
+BRANCH_NAME
+-------------------------
+noida
+
+SQL> (SELECT * FROM loan) minus (SELECT * FROM account);
+
+LOAN_NUMBER BRANCH_NAME                   AMOUNT
+----------- ------------------------- ----------
+          1 noida                           2000
+          2 lmp                             4000
+
 ```
