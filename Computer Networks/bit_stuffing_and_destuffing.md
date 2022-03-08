@@ -41,4 +41,4 @@ print("Bit Destuffing:", bit_unstuffed)
 ```
 
 ## Output
-![Output](https://raw.githubusercontent.com/Programmer101N/cse-labs/b04283f82a5817cbb98b008dc7c345d7412f85bd/Capture.PNG)
+![Output](https://raw.githubusercontent.com/Programmer101N/cse-labs/master/Computer%20Networks/bit_stuffing_and_destuffing.png)
